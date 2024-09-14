@@ -1,5 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { Outlet, RouteObject, useRoutes, BrowserRouter } from 'react-router-dom';
+import DayPlanner from '../screens/DayPlanner';
 
 const Loading = () => <p className="p-4 w-full h-full text-center">Loading...</p>;
 
@@ -35,6 +36,10 @@ const InnerRouter = () => {
         {
           path: '*',
           element: <Page404Screen />,
+        },
+        {
+          path: 'day-planner',
+          element: <DayPlanner />,
         },
       ],
     },
