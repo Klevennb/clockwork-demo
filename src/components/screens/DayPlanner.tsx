@@ -17,7 +17,6 @@ function DayPlanner() {
 
   return (
     <Flex direction="column" alignItems="center">
-      <Header />
       <Flex direction="column" width="20rem">
         <Flex direction="column" gap="small" alignItems="center">
           <Label>Activity to Add</Label>
