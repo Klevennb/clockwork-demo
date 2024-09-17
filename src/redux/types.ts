@@ -1,4 +1,4 @@
-type ActivityStatus = {
+export type ActivityStatus = {
     name: string
     completed: boolean
 }

@@ -1,7 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Outlet, RouteObject, useRoutes, BrowserRouter } from 'react-router-dom';
 import DayPlanner from '../screens/DayPlanner';
-import { Header } from '../shared/Header';
+import { Header } from '../shared/Header/Header';
 
 const Loading = () => <p className="p-4 w-full h-full text-center">Loading...</p>;
 
