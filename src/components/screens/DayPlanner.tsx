@@ -1,30 +1,25 @@
-import { Button, Flex, Input, Label } from '@aws-amplify/ui-react';
-import { useDispatch, useSelector } from 'react-redux';
-import { Header } from '~/components/shared/Header';
-import { addActivity } from '../redux/reducers/dayPlanner';
-import { useState } from 'react';
+import { PotentialActivityList } from '../shared/DayPlanner/PotentialActivityList';
+import { ActivityAdder } from '../shared/DayPlanner/ActivityAdder';
+import { ParameterSetAndSubmit } from '../shared/DayPlanner/ParameterSetAndSubmit';
+import { useSelector } from 'react-redux';
+import { RootState } from '~/redux/store';
+import { ChosenList } from '../shared/DayPlanner/ChosenList';
 
 function DayPlanner() {
-
-  const dispatch = useDispatch();
-
-  const [activity, setActivity] = useState('');
-
-  const updateList = () => {
-    dispatch(addActivity(activity));
-    setActivity('');
-  };
-
+  const chosenActivities = useSelector((state: RootState) => state.dayPlanner.chosenActivites);
+  
   return (
-    <Flex direction="column" alignItems="center">
-      <Flex direction="column" width="20rem">
-        <Flex direction="column" gap="small" alignItems="center">
-          <Label>Activity to Add</Label>
-          <Input id="email" isRequired onChange={(val) => setActivity(val.target.value)} />
-        </Flex>
-        <Button onClick={updateList}>Add Activity</Button>
-      </Flex>
-    </Flex>
+    <>
+      {chosenActivities.length === 0 ? (
+        <>
+          <ActivityAdder />
+          <PotentialActivityList />
+          <ParameterSetAndSubmit />
+        </>
+      ) : (
+        <ChosenList />
+      )}
+    </>
   );
 }
 
