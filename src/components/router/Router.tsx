@@ -2,6 +2,8 @@ import { lazy, Suspense } from 'react';
 import { Outlet, RouteObject, useRoutes, BrowserRouter } from 'react-router-dom';
 import DayPlanner from '../screens/DayPlanner';
 import { Header } from '../shared/Header/Header';
+import WritingAssistant from '../screens/WritingAssistant';
+import Library from '../screens/Library';
 
 const Loading = () => <p className="p-4 w-full h-full text-center">Loading...</p>;
 
@@ -42,6 +44,14 @@ const InnerRouter = () => {
         {
           path: 'day-planner',
           element: <DayPlanner />,
+        },
+        {
+          path: 'writing-assistant',
+          element: <WritingAssistant />,
+        },
+        {
+          path: 'library',
+          element: <Library />,
         },
       ],
     },
