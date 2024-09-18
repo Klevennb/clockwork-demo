@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit'
 import dayPlannerReducer from './reducers/dayPlanner'
+import writingAssistantReducer from './reducers/writingAssistant'
 
 export const store = configureStore({
   reducer: {
     dayPlanner: dayPlannerReducer,
+    writingAssistant: writingAssistantReducer,
   }
 })
 
